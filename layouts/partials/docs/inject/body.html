@@ -124,4 +124,30 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+// 页面完全加载后，移除 preload-theme 以允许动画生效（保持不变）
+  window.addEventListener('load', () => {
+    document.documentElement.classList.remove('preload-theme');
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // 1. 获取复选框元素
+    const themeCheckbox = document.getElementById("theme-toggle-input");
+    if (!themeCheckbox) return;
+
+    // 2. 初始化：根据当前 data-theme 状态设置复选框的 checked 状态
+    // 我们设定：Checked = 深色模式, Unchecked = 浅色模式
+    const root = document.documentElement;
+    if (root.getAttribute("data-theme") === "dark") {
+        themeCheckbox.checked = true;
+    }
+
+    // 3. 监听复选框的改变事件
+    themeCheckbox.addEventListener("change", () => {
+        const newTheme = themeCheckbox.checked ? "dark" : "light";
+        
+        root.setAttribute("data-theme", newTheme);
+        localStorage.setItem("hugo-book-theme", newTheme);
+    });
+  });
 </script>

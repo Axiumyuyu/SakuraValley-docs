@@ -1,0 +1,150 @@
+/* =========================================
+   1. 全局渐变动画
+========================================= */
+/* 阻止初始加载时的动画 */
+.preload-theme * {
+  transition: none !important;
+}
+
+/* 限定只对颜色、背景、边框等相关属性做渐变，防止引起排版重绘导致卡顿 */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+}
+
+
+/* =========================================
+   2. 左侧边栏吸底容器
+========================================= */
+.theme-toggle-wrapper {
+  /* 关键：利用 sticky 将元素粘在可滚动区域的底部 */
+  position: sticky;
+  bottom: 0;
+  
+  /* 样式修饰 */
+  padding: 1rem 0;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  
+  /* 使用与侧边栏一致的背景色，防止上面的菜单内容滚动时穿透重叠 */
+  background: var(--body-background);
+  /* 顶部加上微弱的阴影或边框作为分割线 */
+  box-shadow: 0 -4px 6px -6px var(--gray-500);
+}
+
+
+/* 强制浅色模式变量 */
+html[data-theme="light"] {
+  --color-link: #005cc5;      /* 未访问的链接颜色 */
+  --color-visited-link: #511edb;   /* 访问过的链接颜色 */
+  --body-background: #ffffff;
+  --body-font-color: #333333; /* 修正后的 Hugo Book 核心文字变量 */
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-500: #6c757d;
+  --color-link: #005cc5;
+  
+  /* 滑动开关专用颜色 */
+  --switch-bg: #f0f2f5;
+  --switch-handle: #fafafa;
+  --switch-icon-active: #f39c12; /* 太阳的颜色 */
+}
+
+/* 强制深色模式变量 */
+html[data-theme="dark"] {
+  --color-link: #6db6ff;      /* 未访问的链接颜色 */
+  --color-visited-link: #92ef9e;   /* 访问过的链接颜色 (你可以把它改得更亮，比如 #b3d4ff) */
+  --body-background: #232425;
+  --body-font-color: #d4d4d4; /* 修正后的 Hugo Book 核心文字变量 */
+  --gray-100: #1b1b1b;
+  --gray-200: #2a2a2a;
+  --gray-500: #a9a9a9;
+  --color-link: #6db6ff;
+
+  /* 滑动开关专用颜色 */
+  --switch-bg: #151618;
+  --switch-handle: #393939;
+  --switch-icon-active: #f1c40f; /* 月亮的颜色 */
+}
+
+.book-menu-content {
+  position: relative;
+  min-height: 100vh; /* 强制菜单容器至少占满整个屏幕高度 */
+  padding-bottom: 70px !important; /* 给底部的按钮留出空间，防止菜单文字滚动时被遮挡 */
+}
+
+.theme-toggle-wrapper {
+  /* 使用绝对定位，将其死死钉在 book-menu-content 的最底部 */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* 固定按钮区域的高度 */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--body-background);
+  border-top: 1px solid var(--gray-200);
+  z-index: 10;
+}
+
+
+/* =========================================
+   3. Uiverse 纯 CSS 月亮/太阳开关适配
+========================================= */
+/* 缩小整体尺寸，60x30 显得更加扁平和精致 */
+.toggle-switch {
+  position: relative;
+  width: 60px;
+  height: 30px;
+}
+
+.switch-label {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  /* 轨道背景直接使用主题的灰色变量 */
+  background-color: var(--switch-bg);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.checkbox {
+  display: none; /* 隐藏原生复选框 */
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+/* 核心技巧：未选中（浅色模式）时的太阳状态 */
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  
+  /* 将 var(--body-font-color) 替换为我们的专属变量 */
+  background-color: var(--switch-handle);
+  
+  box-shadow: none;
+  transition: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* 核心技巧：选中（深色模式）时的月亮状态 */
+.checkbox:checked ~ .slider::before {
+  transform: translateX(30px);
+  background-color: var(--switch-bg);
+  
+  /* 将 var(--body-font-color) 替换为我们的专属变量 */
+  box-shadow: inset 8px -3px 0px 0px var(--switch-handle);
+}

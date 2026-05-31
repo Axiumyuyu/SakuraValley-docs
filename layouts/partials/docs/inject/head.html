@@ -1,0 +1,11 @@
+<script>
+(function() {
+    // 页面渲染前就添加 preload-theme 阻止一切动画
+    document.documentElement.classList.add('preload-theme');
+    
+    const savedTheme = localStorage.getItem('hugo-book-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
