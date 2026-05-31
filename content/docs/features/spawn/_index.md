@@ -9,6 +9,7 @@ weight: 1
 # bookSearchExclude: false
 # bookHref: ''
 # bookIcon: 'r'
+draft: true
 ---
 
 # 关于刷怪笼和刷怪蛋机制的草案

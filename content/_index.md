@@ -1,9 +1,9 @@
 ---
-title: 介绍
+title: SakuraValley | 樱之谷
 type: docs
 ---
 
-# SakuraValley | 樱之谷
+# SakuraValley | 樱之谷 | 4月
 
 这是一个已经存在了两年多的数字世界。
 
