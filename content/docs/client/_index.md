@@ -1,5 +1,5 @@
 ---
-title: "客户端的说明"
+title: "客户端"
 weight: 0
 # bookFlatSection: false
 # bookToc: true
