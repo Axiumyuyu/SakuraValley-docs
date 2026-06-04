@@ -1,5 +1,5 @@
 ---
-title: "战斗机制"
+title: "属性系统"
 weight: 1
 # bookFlatSection: false
 # bookToc: true

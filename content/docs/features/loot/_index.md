@@ -1,5 +1,5 @@
 ---
-title: "Residence领地"
+title: "战利品"
 weight: 1
 # bookFlatSection: false
 # bookToc: true
@@ -10,5 +10,4 @@ weight: 1
 # bookHref: ''
 # bookIcon: ''
 ---
-
-a
+图腾 战利品再生

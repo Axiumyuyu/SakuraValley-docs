@@ -1,5 +1,5 @@
 ---
-title: "Residence领地"
+title: "物品耐久"
 weight: 1
 # bookFlatSection: false
 # bookToc: true
@@ -9,6 +9,4 @@ weight: 1
 # bookSearchExclude: false
 # bookHref: ''
 # bookIcon: ''
----
-
-a
+-----
