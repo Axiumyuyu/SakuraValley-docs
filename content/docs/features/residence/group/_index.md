@@ -1,5 +1,5 @@
 ---
-title: "物品耐久"
+title: "各权限组信息"
 weight: 1
 # bookFlatSection: false
 # bookToc: true
@@ -9,8 +9,5 @@ weight: 1
 # bookSearchExclude: false
 # bookHref: ''
 # bookIcon: ''
------
-
-介绍和物品耐久机制相关的所有内容
-
-页面施工中。。。
+---
+aaa
