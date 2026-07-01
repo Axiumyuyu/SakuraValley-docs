@@ -15,6 +15,14 @@ weight: 1
 
 ## [Josh's More Foods](https://modrinth.com/datapack/joshs-more-foods)
 
+按照如下方式制作一本食谱书:
+
+![无序合成：书与笔 + 面包](https://file.axiumyu.xyz/20260609_260609_182527.webp)
+
+按照如下方式制作一本营养书：
+
+![无序合成：书与笔 + 胡萝卜](https://file.axiumyu.xyz/20260609_260609_184028.webp)
+
 
 
 ## [Chef's Dream](https://modrinth.com/datapack/chefs-dream)
