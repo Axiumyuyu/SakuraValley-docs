@@ -1,3 +1,7 @@
 languageCode: "zh-cn"
 title: "SakuraValley | 樱之谷"
 theme: book
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

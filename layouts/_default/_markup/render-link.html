@@ -1,0 +1,18 @@
+{{- $destination := .Destination -}}
+{{- $page := .Page -}}
+
+{{/* 如果不是绝对 URL（非 http:// 或 https://），且指向的是 .md 文件 */}}
+{{- if and (not (urls.Parse $destination).IsAbs) (strings.HasSuffix $destination ".md") -}}
+  {{- $linkPath := strings.TrimSuffix ".md" $destination -}}
+  {{/* 在当前页面的同级或上下文中查找目标页面 */}}
+  {{- with $page.GetPage $linkPath -}}
+    {{- $destination = .RelPermalink -}}
+  {{- else -}}
+    {{/* 尝试绝对路径/相对路径解析 */}}
+    {{- with $page.Site.GetPage $linkPath -}}
+      {{- $destination = .RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+<a href="{{ $destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>

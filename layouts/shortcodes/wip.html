@@ -1,0 +1,9 @@
+<blockquote class="book-hint notice wip">
+  {{ if .Get 0 }}
+    {{ .Get 0 | markdownify }}
+  {{ else }}
+    <div>
+      <strong>本页面含有尚未实装的内容，仅代表未来的设计方向。</strong>
+    </div>
+  {{ end }}
+</blockquote>

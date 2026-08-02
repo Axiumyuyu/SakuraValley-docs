@@ -1,14 +1,6 @@
 ---
-title: "非原版特性"
-weight: 3
-# bookFlatSection: false
-# bookToc: true
-# bookHidden: false
-# bookCollapseSection: false
-# bookComments: false
-# bookSearchExclude: false
-# bookHref: ''
-# bookIcon: ''
+title: 非原版特性
+weight: 5
 ---
 
 # 非原版特性
