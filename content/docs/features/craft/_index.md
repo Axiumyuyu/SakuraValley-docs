@@ -1,5 +1,5 @@
 ---
-title: "各权限组信息"
+title: "合成"
 weight: 1
 # bookFlatSection: false
 # bookToc: true
